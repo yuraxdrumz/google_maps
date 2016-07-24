@@ -12,10 +12,19 @@ router.get('/',function (req,res) {
 
 router.get('/register',function (req,res) {
     res.render('register')
-})
+});
 
 router.get('/main',auth,function (req,res) {
     res.render('main',{user:req.user})
+});
+
+router.get('/add-review',auth,function(req,res){
+    res.render('add_review')
+});
+
+router.post('/add-review',auth,function(req,res){
+    console.log(req.body);
+    res.redirect('/main')
 })
 
 module.exports = router;

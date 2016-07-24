@@ -1,0 +1,18 @@
+<form class="review_form" method="post" action="/add-review">
+    <span>
+        <label for="">Location</label><input type="text" id='review_search' name='location'>
+    </span>
+    <span>
+        <label for="">Place to review</label><input type="text" name='place'>
+    </span>
+    <span>
+        <label for="">img url</label><input type="text" name='img'>
+    </span>
+    <span>
+        <label for="">review</label>
+        <textarea name='review'></textarea>
+    </span>
+    <button type="submit">Submit</button>
+</form>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsTimrAVNKbEHPX-C0ztowEdzFnyxVxFw&libraries=places"></script>
+<script src="/js/add_review.js"></script>

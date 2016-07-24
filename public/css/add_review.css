@@ -1,0 +1,10 @@
+
+.review_form {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    background-color: cadetblue;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
