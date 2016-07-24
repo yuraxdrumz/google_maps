@@ -1,0 +1,11 @@
+<div class="navbar">
+    {{#unless user}}
+    <div><a href="/">Home</a></div>
+    <div><a href="/register">Register</a></div>
+    <div><a href="/main">main</a></div>
+    {{/unless}}
+    {{#if user}}
+        <div>Signed In!</div>
+        <div><a href="/logout">Logout</a></div>
+    {{/if}}
+</div>
