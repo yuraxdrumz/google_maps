@@ -4,3 +4,9 @@
     height: 500px;
     width: 500px;
 }
+
+.reviews {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}

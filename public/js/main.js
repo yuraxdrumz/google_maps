@@ -10,15 +10,44 @@ $(document).ready(function(){
         var autocomplete = new google.maps.places.Autocomplete(input,{
             types: ['(cities)']
         });
+
         autocomplete.addListener('place_changed',function(){
+            var myDiv = document.querySelector('.reviews');
+            while ( myDiv.firstChild ){
+                myDiv.removeChild( myDiv.firstChild );
+                console.log('removed')
+            }
             var new_center = autocomplete.getPlace().geometry.location;
             var place_id = autocomplete.getPlace().place_id;
             map.setCenter(new_center);
 
+            var marker = new google.maps.Marker({
+                position:new_center,
+                animation: google.maps.Animation.DROP,
+                map:map
+            });
+
             $.get('/loc/' + place_id,function(data){
                 var reviews = data;
-                console.log(data)
+                for(var i=0,len=reviews.length;i<len;i++){
+                    var div = document.createElement('div');
+                    var date = document.createElement('div');
+                    var place = document.createElement('div');
+                    var img = document.createElement('img');
+                    var user_email = document.createElement('div');
+                    date.innerHTML = reviews[i].date;
+                    place.innerHTML = reviews[i].place;
+                    img.setAttribute('src',reviews[i].img_url);
+                    user_email.innerHTML = reviews[i].user_email;
+                    div.appendChild(date)
+                    div.appendChild(place)
+                    div.appendChild(img)
+                    div.appendChild(user_email)
+                    document.querySelector('.reviews').appendChild(div);
+                }
+
             });
         });
     };
+
 });
