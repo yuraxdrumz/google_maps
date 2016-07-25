@@ -16,7 +16,7 @@ mongoose.connect('mongodb://localhost/gmaps');
 var passport = require('passport');
 require('./config/passport')(passport);
 var session = require('express-session');
-var webRouter = require('./routes/webRouter');
+var webRouter = require('./routes/webRouter')();
 var apiRouter = require('./routes/apiRouter')(passport);
 
 
