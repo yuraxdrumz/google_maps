@@ -4,9 +4,11 @@ $(document).ready(function(){
         types: ['(cities)']
     });
 
-    $('.review_form').submit(function(){
+    $('.review_form').submit(function(e){
         var place = autocomplete.getPlace().place_id;
-        $('#review_search').val(place);
+        var place_name = autocomplete.getPlace().name;
+        var total = place + '*' + place_name;
+        $('#review_search').val(total);
     });
 });
 

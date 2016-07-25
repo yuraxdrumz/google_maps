@@ -5,8 +5,10 @@
     <div><a href="/main">main</a></div>
     {{/unless}}
     {{#if user}}
+        <div>Logged in as: {{user.email}}</div>
+        <div> <a href="/main">Main</a> </div>
         <div><a href="/add-review">Add Review</a></div>
-        <div><a href="/update-review">Update Review</a></div>
+        <div><a href="/my-reviews">My Reviews</a></div>
         <div><a href="/logout">Logout</a></div>
     {{/if}}
 </div>

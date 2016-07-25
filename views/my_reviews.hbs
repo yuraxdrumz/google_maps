@@ -1,0 +1,13 @@
+{{#each reviews}}
+    <div class="each_review">
+        <input type='hidden' data-id='{{this.location_id}}'>
+        <div>location: {{this.location_name}} </div>
+        <div>place reviewed: {{this.place}} </div>
+        <img src="{{this.img_url}}" alt="">
+        <div>review: {{this.review}} </div>
+        <div>by: {{this.user_fname}} {{this.user_lname}}</div>
+    </div>
+{{/each}}
+
+
+<script src="/js/my_reviews.js"></script>

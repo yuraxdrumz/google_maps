@@ -15,7 +15,7 @@ $(document).ready(function(){
             var myDiv = document.querySelector('.reviews');
             while ( myDiv.firstChild ){
                 myDiv.removeChild( myDiv.firstChild );
-                console.log('removed')
+                console.log('removed');
             }
             var new_center = autocomplete.getPlace().geometry.location;
             var place_id = autocomplete.getPlace().place_id;
@@ -34,15 +34,18 @@ $(document).ready(function(){
                     var date = document.createElement('div');
                     var place = document.createElement('div');
                     var img = document.createElement('img');
-                    var user_email = document.createElement('div');
+                    var user_first_name = document.createElement('div');
+                    var user_last_name = document.createElement('div');
                     date.innerHTML = reviews[i].date;
                     place.innerHTML = reviews[i].place;
                     img.setAttribute('src',reviews[i].img_url);
-                    user_email.innerHTML = reviews[i].user_email;
+                    user_first_name.innerHTML = reviews[i].user_fname;
+                    user_last_name.innerHTML = reviews[i].user_lname;
                     div.appendChild(date)
                     div.appendChild(place)
                     div.appendChild(img)
-                    div.appendChild(user_email)
+                    div.appendChild(user_first_name)
+                    div.appendChild(user_last_name)
                     document.querySelector('.reviews').appendChild(div);
                 }
 
