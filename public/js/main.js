@@ -6,10 +6,12 @@ $(document).ready(function(){
             zoom:8
         })
 
+
         var input = document.getElementById('search')
         var autocomplete = new google.maps.places.Autocomplete(input,{
             types: ['(cities)']
         });
+        map.controls[google.maps.ControlPosition.TOP_CENTER].push(input);
 
         autocomplete.addListener('place_changed',function(){
             var myDiv = document.querySelector('.reviews');
@@ -41,7 +43,7 @@ $(document).ready(function(){
                     place.innerHTML = 'place reviewed: ' + reviews[i].place;
                     img.setAttribute('src',reviews[i].img_url);
                     review.innerHTML = reviews[i].review
-                    user_name.innerHTML ='by ' + reviews[i].user_fname + ' ' + reviews[i].user_lname;
+                    user_name.innerHTML ='by: ' + reviews[i].user_fname + ' ' + reviews[i].user_lname;
                     div.appendChild(date)
                     div.appendChild(place)
                     div.appendChild(img)

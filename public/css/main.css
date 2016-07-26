@@ -1,8 +1,7 @@
 #map{
     display: flex;
     flex: 1;
-    height: 500px;
-    width: 500px;
+    height: 30rem;
 }
 
 .reviews {
@@ -29,10 +28,13 @@
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+
 }
 
 #search {
     border-radius: 5px;
+    width: 10%;
+    margin-top: 1rem;
 }
+
+
