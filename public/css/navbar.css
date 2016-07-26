@@ -1,6 +1,13 @@
 .navbar{
     display: flex;
-    height: 10%;
-    background-color: #76d04b;
+    min-height: 5%;
+    background-color: rgb(95, 95, 95);
     justify-content: space-around;
+    align-items: center;
+    font-family: 'Architects Daughter', cursive;
+}
+.click{
+    color:white;
+    text-decoration: none;
+
 }

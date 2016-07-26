@@ -1,14 +1,13 @@
 <div class="navbar">
     {{#unless user}}
-    <div><a href="/">Home</a></div>
-    <div><a href="/register">Register</a></div>
-    <div><a href="/main">main</a></div>
+    <div><a class="click" href="/">Home</a></div>
+    <div><a class="click" href="/register">Register</a></div>
     {{/unless}}
     {{#if user}}
-        <div>Logged in as: {{user.email}}</div>
-        <div> <a href="/main">Main</a> </div>
-        <div><a href="/add-review">Add Review</a></div>
-        <div><a href="/my-reviews">My Reviews</a></div>
-        <div><a href="/logout">Logout</a></div>
+        <div class="click">Logged in as: {{user.email}}</div>
+        <div> <a class="click" href="/main">Main</a> </div>
+        <div><a class="click" href="/add-review">Add Review</a></div>
+        <div><a class="click" href="/my-reviews">My Reviews</a></div>
+        <div><a class="click" href="/logout">Logout</a></div>
     {{/if}}
 </div>

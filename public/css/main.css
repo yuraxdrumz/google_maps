@@ -10,3 +10,29 @@
     flex: 1;
     flex-direction: column;
 }
+.single_review{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    width:50%;
+    margin-left: auto;
+    margin-right: auto;
+    border:2px solid black;
+}
+.img_size{
+    height:10rem;
+}
+
+.search_box {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+#search {
+    border-radius: 5px;
+}

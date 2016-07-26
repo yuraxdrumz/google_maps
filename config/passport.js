@@ -10,7 +10,7 @@ module.exports = function (passport) {
         return done(null,user._id)
     });
     passport.deserializeUser(function (id,done) {
-        User.find({_id:id}).exec().then(function (user) {
+        User.findOne({_id:id}).exec().then(function (user) {
             return done(null, user)
         })
     });
@@ -28,6 +28,7 @@ module.exports = function (passport) {
                 if(!(user.checkValid(password))){
                     return done(null,false)
                 }
+                console.dir(user)
                 return done(null, user)
             })
                 .catch(function (err) {

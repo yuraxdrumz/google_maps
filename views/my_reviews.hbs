@@ -1,11 +1,11 @@
 {{#each reviews}}
     <div class="each_review">
-        <input type='hidden' data-id='{{this.location_id}}'>
         <div>location: {{this.location_name}} </div>
         <div>place reviewed: {{this.place}} </div>
         <img src="{{this.img_url}}" alt="">
         <div>review: {{this.review}} </div>
         <div>by: {{this.user_fname}} {{this.user_lname}}</div>
+        <button><a href="/edit/{{this.location_id}}">Edit Review</a></button>
     </div>
 {{/each}}
 

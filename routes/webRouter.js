@@ -21,11 +21,11 @@ module.exports = function(){
     });
 
     router.get('/main',auth,function (req,res) {
-        res.render('main',{user:req.user[0]});
+        res.render('main',{user:req.user});
     });
 
     router.get('/add-review',auth,function(req,res){
-        res.render('add_review',{user:req.user[0]})
+        res.render('add_review',{user:req.user})
     });
 
     router.post('/add-review',auth,function(req,res,next){
@@ -41,9 +41,9 @@ module.exports = function(){
             place:req.body.place,
             img_url:req.body.img,
             review:req.body.review,
-            user_id:req.user[0]._id,
-            user_fname:req.user[0].first_name,
-            user_lname:req.user[0].last_name
+            user_id:req.user._id,
+            user_fname:req.user.first_name,
+            user_lname:req.user.last_name
         });
         location.save().then(function(){
             res.redirect('/main');
@@ -61,14 +61,35 @@ module.exports = function(){
         })
     });
     router.get('/my-reviews',auth,function(req,res,next){
-        Location.find({user_id:req.user[0]._id}).exec().then(function(data){
-            res.render('my_reviews',{reviews:data,user:req.user[0]});
+        Location.find({user_id:req.user._id}).exec().then(function(data){
+            res.render('my_reviews',{reviews:data,user:req.user});
         })
         .catch(function(err){
             next(err);
         });
     });
 
+    router.get('/edit/:id',auth,function(req,res,next){
+        Location.findOne({location_id:req.params.id}).exec().then(function(found){
+            res.render('edit_review',{review:found,user:req.user});
+        })
+        .catch(function(err){
+            next(err)
+        })
+    })
+
+    router.post('/edit/:id',auth,function(req,res,next){
+        Location.findOneAndUpdate({location_id:req.params.id},{
+            place:req.body.place,
+            img_url:req.body.img_url,
+            review:req.body.review
+        }).exec().then(function(){
+            res.redirect('/main')
+        })
+        .catch(function(err){
+            next(err)
+        })
+    })
     return router;
 }
 

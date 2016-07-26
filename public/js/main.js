@@ -34,15 +34,20 @@ $(document).ready(function(){
                     var date = document.createElement('div');
                     var place = document.createElement('div');
                     var img = document.createElement('img');
+                    var review = document.createElement('div');
+                    img.className += 'img_size'
                     var user_name = document.createElement('div');
                     date.innerHTML = reviews[i].date;
                     place.innerHTML = 'place reviewed: ' + reviews[i].place;
                     img.setAttribute('src',reviews[i].img_url);
+                    review.innerHTML = reviews[i].review
                     user_name.innerHTML ='by ' + reviews[i].user_fname + ' ' + reviews[i].user_lname;
                     div.appendChild(date)
                     div.appendChild(place)
                     div.appendChild(img)
                     div.appendChild(user_name)
+                    div.appendChild(review);
+                    div.className += 'single_review'
                     document.querySelector('.reviews').appendChild(div);
                 }
 
