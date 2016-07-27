@@ -27,6 +27,7 @@ var apiRouter = require('./routes/apiRouter')(passport);
 app.engine('.hbs',exphbs({defaultLayout:'body',extname:'.hbs'}));
 app.set('view engine', '.hbs');
 app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/node_modules'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(morgan('dev'));
