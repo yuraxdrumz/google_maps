@@ -35,7 +35,11 @@
 
 #search {
     border-radius: 5px;
-    width: 10%;
+    width: 20%;
+    height: 10%;
+    font-size: 1.3rem;
+    font-family: 'Architects Daughter', cursive;
+    text-align: center;
     margin-top: 1rem;
 }
 

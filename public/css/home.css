@@ -62,3 +62,11 @@
     border-bottom: 1px solid;
 }
 
+
+.messages {
+    display: flex;
+    justify-content: center;
+    min-height: 20%;
+    color:red;
+    font-size: 1.5rem;
+}

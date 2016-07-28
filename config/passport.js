@@ -4,6 +4,7 @@
 var mongoose = require('mongoose');
 var User = require('../models/user-model');
 var localStrategy = require('passport-local').Strategy;
+var flash = require('connect-flash');
 
 module.exports = function (passport) {
     passport.serializeUser(function (user,done) {
@@ -23,12 +24,11 @@ module.exports = function (passport) {
         function (req, email, password, done) {
             User.findOne({email:email}).exec().then(function (user) {
                 if(!user){
-                    return done(null,false);
+                    return done(null,false,req.flash('message','user not found'));
                 }
                 if(!(user.checkValid(password))){
-                    return done(null,false)
+                    return done(null,false,req.flash('message','password is incorrect'))
                 }
-                console.dir(user)
                 return done(null, user)
             })
                 .catch(function (err) {

@@ -4,15 +4,17 @@ var router = express.Router();
 var auth = require('./auth');
 var mongoose = require('mongoose');
 var Location = require('../models/location-model');
+var flash = require('connect-flash');
 
 module.exports = function(){
 
     router.get('/',function (req,res) {
+        var msg = req.flash('message');
         if(req.user){
             req.logout();
             res.render('home')
         }else{
-            res.render('home');
+            res.render('home',{message:msg});
         }
     });
 

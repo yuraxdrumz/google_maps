@@ -8,10 +8,10 @@ var port = process.env.PORT || 3000;
 var exphbs  = require('express-handlebars');
 var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
-
 var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 mongoose.connect('mongodb://localhost/gmaps');
+var flash = require('connect-flash');
 
 var passport = require('passport');
 require('./config/passport')(passport);
@@ -26,6 +26,7 @@ var apiRouter = require('./routes/apiRouter')(passport);
 
 app.engine('.hbs',exphbs({defaultLayout:'body',extname:'.hbs'}));
 app.set('view engine', '.hbs');
+app.use(flash());
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/node_modules'));
 app.use(bodyParser.json());
