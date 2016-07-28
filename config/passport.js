@@ -45,7 +45,7 @@ module.exports = function (passport) {
         function (req,email,password,done) {
             User.findOne({email:email}).exec().then(function (user) {
                 if(user) {
-                    return done(null, false)
+                    return done(null, false,req.flash('message','This email is already taken'))
                 }else{
                     var user = new User({
                         _id: mongoose.Types.ObjectId(),

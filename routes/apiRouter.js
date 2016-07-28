@@ -4,7 +4,7 @@ var router = express.Router();
 
 module.exports = function (passport) {
 
-    router.post('/register',passport.authenticate('local-signup',{successRedirect:'/main',failureRedirect:'/',failureFlash:true}));
+    router.post('/register',passport.authenticate('local-signup',{successRedirect:'/main',failureRedirect:'/register',failureFlash:true}));
 
     router.post('/login', passport.authenticate('local-login',                  {successRedirect:'/main',failureRedirect:'/',failureFlash:true}));
 

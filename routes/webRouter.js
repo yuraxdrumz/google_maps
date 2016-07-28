@@ -12,14 +12,15 @@ module.exports = function(){
         var msg = req.flash('message');
         if(req.user){
             req.logout();
-            res.render('home')
+            res.render('home',{message:msg})
         }else{
             res.render('home',{message:msg});
         }
     });
 
     router.get('/register',function (req,res) {
-        res.render('register')
+        var msg = req.flash('message')
+        res.render('register',{message:msg})
     });
 
     router.get('/main',auth,function (req,res) {
