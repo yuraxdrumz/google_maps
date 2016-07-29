@@ -1,4 +1,6 @@
 $(document).ready(function(){
+
+
     window.initMap = function(){
         var map = new google.maps.Map(document.getElementById('map'),{
             center:{lat:26,lng:63},
@@ -15,10 +17,10 @@ $(document).ready(function(){
 
         autocomplete.addListener('place_changed',function(){
             var myDiv = document.querySelector('.reviews');
-            while ( myDiv.firstChild ){
-                myDiv.removeChild( myDiv.firstChild );
-                console.log('removed');
-            }
+                while ( myDiv.firstChild ){
+                    myDiv.removeChild( myDiv.firstChild );
+                };
+
             var new_center = autocomplete.getPlace().geometry.location;
             var place_id = autocomplete.getPlace().place_id;
             map.setCenter(new_center);
@@ -39,9 +41,11 @@ $(document).ready(function(){
                     var review = document.createElement('div');
                     img.className += 'img_size'
                     var user_name = document.createElement('div');
-                    date.innerHTML = reviews[i].date;
+                    var createDate = moment(reviews[i].date).format("dddd, MMMM Do YYYY, h:mm:ss a");
+                    date.innerHTML = createDate;
                     place.innerHTML = 'place reviewed: ' + reviews[i].place;
-                    img.setAttribute('src',reviews[i].img_url);
+                    img.style.background = 'url('+reviews[i].img_url+') 50% 50% no-repeat';
+                    img.style.backgroundSize = 'cover'
                     review.innerHTML = reviews[i].review
                     user_name.innerHTML ='by: ' + reviews[i].user_fname + ' ' + reviews[i].user_lname;
                     div.appendChild(date)
