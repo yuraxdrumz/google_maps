@@ -4,9 +4,9 @@
     flex: 1;
     flex-direction: column;
     width: 50%;
-    height: 50%;
+    height: 90%;
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    justify-content: center;
+    animation: fadeIn 1s;
 }

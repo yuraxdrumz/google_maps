@@ -7,9 +7,10 @@
 .reviews {
     display: flex;
     flex: 1;
-    min-height: 55%;
+    min-height: 50%;
     flex-direction: column;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(31, 149, 77);
+
 }
 .single_review{
     display: flex;
@@ -20,6 +21,8 @@
     margin-right: auto;
     border:2px solid black;
     margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
 }
 .img_size{
     height:10rem;

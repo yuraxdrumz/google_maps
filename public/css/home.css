@@ -1,14 +1,19 @@
 
+@keyframes fadeIn{
+    from {opacity:0}
+    to {opacity: 1}
+}
 .loginForm {
     display: flex;
     flex: 1;
     flex-direction: column;
     width: 50%;
-    height: 50%;
+    height: 90%;
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    justify-content: center;
+/*    justify-content: center;*/
+    animation: fadeIn 1s;
 }
 
 .login_form {
@@ -20,12 +25,12 @@
 
 
 .background {
-    background: url('http://kingofwallpapers.com/travel/travel-022.jpg') 50% 50% no-repeat;
+    background: url('http://kingofwallpapers.com/travel/travel-022.jpg') 50% 50% fixed;
     background-size: cover;
     position: absolute;
     display: flex;
     width: 100%;
-    height: 95%;
+    height: 90%;
 }
 
 .input_box {

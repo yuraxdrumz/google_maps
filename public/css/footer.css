@@ -1,0 +1,10 @@
+
+.footer2 {
+    display: flex;
+    min-height: 5%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Architects Daughter', cursive;
+    font-size: 1.5rem;
+}
