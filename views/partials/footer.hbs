@@ -2,14 +2,17 @@
    &copy;Yuri Khomyakov
     <div class="left_side">
        {{#unless user}}
-        <div><a class="click hvr-underline-from-left" href="/">Home</a></div>|
+        <div><a class="click hvr-underline-from-left" href="/"><i class="fa fa-home" aria-hidden="true"></i>
+</a></div>|
         <div><a class="click hvr-underline-from-left" href="/register">Register</a></div>
         {{/unless}}
         {{#if user}}
-        <div> <a class="click hvr-underline-from-left" href="/main">Main</a></div>|
+        <div> <a class="click hvr-underline-from-left" href="/main"><i class="fa fa-home" aria-hidden="true"></i>
+</a></div>|
         <div><a class="click hvr-underline-from-left" href="/add-review">Add Review</a></div>|
         <div><a class="click hvr-underline-from-left" href="/my-reviews">My Reviews</a></div>|
-        <div><a class="click hvr-underline-from-left" href="/logout">Logout</a></div>
+        <div><a class="click hvr-underline-from-left" href="/logout"><i class="fa fa-times" aria-hidden="true"></i>
+</a></div>
         {{/if}}
     </div>
     <div class="right_side">
