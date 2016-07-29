@@ -25,7 +25,8 @@
 
 
 .background {
-    background: url('http://kingofwallpapers.com/travel/travel-022.jpg') 50% 50% fixed;
+    z-index: -1;
+    background: url(http://sandierpastures.com/wp-content/uploads/2015/10/budget-travel.jpg) 50% 50% fixed;
     background-size: cover;
     position: absolute;
     display: flex;
@@ -71,6 +72,7 @@
 .messages {
     display: flex;
     justify-content: center;
+    align-items:center;
     min-height: 20%;
     color:red;
     font-size: 1.5rem;

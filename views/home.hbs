@@ -2,7 +2,7 @@
 <form class="loginForm" action="/login" method="post">
    <div class="messages">{{message}}</div>
     <div class="login_form">Email<input class="input_box email_box" type="text" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"></div>
-    <div class="login_form">Password<input class="input_box password_box" type="password" name="password" required></div>
+    <div class="login_form">Password<input class="input_box password_box" type="password" name="password" pattern=".{5,}" required title="5 characters minimum"></div>
     <div class="login_form"><button class="btn" type="submit">Login</button></div>
 
 </form>

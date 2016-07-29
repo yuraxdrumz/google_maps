@@ -2,6 +2,7 @@
     display: flex;
     flex: 1;
     min-height: 40%;
+    animation: fadeIn 1s;
 }
 
 .reviews {
@@ -10,6 +11,7 @@
     min-height: 50%;
     flex-direction: column;
     background-color: rgb(31, 149, 77);
+    animation: fadeIn 1s;
 
 }
 .single_review{
@@ -23,6 +25,7 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
     border-radius: 5px;
+    animation: fadeIn 1s;
 }
 .img_size{
     height:10rem;

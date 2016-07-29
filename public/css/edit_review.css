@@ -1,0 +1,9 @@
+.edit_review{
+    animation: fadeIn 1s;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 90%;
+    justify-content: center;
+    align-items: center;
+}
