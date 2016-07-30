@@ -3,10 +3,22 @@
     display: flex;
     flex: 1;
     flex-direction: column;
-    background-color: cadetblue;
-    width: 50%;
     height: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    justify-content: center;
+    align-items: center;
     animation: fadeIn 1s;
+}
+.review_form input{
+    width: 100%;
+}
+.add_review_background{
+    z-index: -1;
+    top:0;
+    left:0;
+    background: url('/images/index.jpg') 50% 50% fixed;
+    background-size: cover;
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
 }

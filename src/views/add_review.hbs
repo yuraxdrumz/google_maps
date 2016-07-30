@@ -1,18 +1,20 @@
-<form class="review_form" method="post" action="/add-review">
-    <span>
-        <label for="">Location</label><input type="text" id='review_search' name='location'>
+<div class="add_review_background"></div>
+  <form class="review_form" method="post" action="/add-review">
+
+    <span class="login_form">
+        <label>Location</label><input class="input_box" type="text" id='review_search' name='location' required>
     </span>
-    <span>
-        <label for="">Place to review</label><input type="text" name='place'>
+    <span class="login_form">
+        <label>Place to review</label><input class='input_box' type="text" name='place' required>
     </span>
-    <span>
-        <label for="">img url</label><input type="text" name='img'>
+    <span class="login_form">
+        <label>img url</label><input class="input_box" type="text" name='img' required>
     </span>
-    <span>
-        <label for="">review</label>
-        <textarea name='review'></textarea>
+    <span class="login_form">
+        <label>review</label>
+        <textarea class="input_box" name='review' required></textarea>
     </span>
-    <button type="submit">Submit</button>
+    <button class="btn" type="submit">Submit</button>
 </form>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsTimrAVNKbEHPX-C0ztowEdzFnyxVxFw&libraries=places"></script>
 <script src="/js/add_review.js"></script>

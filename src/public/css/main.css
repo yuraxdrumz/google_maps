@@ -20,7 +20,7 @@
     display: flex;
     flex: 1;
     min-height: 50%;
-    background-color: rgb(31, 149, 77);
+    background-color: cadetblue;
     animation: fadeIn 1s;
     flex-wrap: wrap;
     justify-content: center;
