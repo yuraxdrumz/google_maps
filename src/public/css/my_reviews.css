@@ -2,7 +2,7 @@
     font-size: 1.3rem;
     animation: fadeIn 1s;
     display: flex;
-    width: 20%;
+    flex: 1 0 30%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -11,6 +11,7 @@
     margin: 1rem;
     border-radius: 5px;
     padding: 1rem;
+    max-width: 20%;
 
 }
 .all{
@@ -19,4 +20,53 @@
     background-color: cadetblue;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.location {
+    display: flex;
+    flex: 1;
+    background-color: aqua;
+    width: 100%;
+}
+.place_reviewed{
+    display: flex;
+    flex: 1;
+    background-color: antiquewhite;
+    width: 100%
+}
+.review_image{
+    display: flex;
+    flex: 1;
+    background-color: darkred;
+    width: 100%
+}
+.review_by_user{
+    display: flex;
+    flex: 1 0 20%;
+    background-color: rebeccapurple;
+    width: 100%;
+    overflow: auto;
+    flex-direction: column;
+    word-wrap: break-word;
+
+}
+.who_reviewed{
+    display: flex;
+    flex: 1;
+    background-color: crimson;
+    width: 100%;
+}
+::-webkit-scrollbar {
+    width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color:#2a6ef8;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(244, 244, 244, 0.5);
 }
