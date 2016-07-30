@@ -14,20 +14,18 @@ mongoose.connect('mongodb://localhost/gmaps');
 var flash = require('connect-flash');
 
 var passport = require('passport');
-require('./config/passport')(passport);
+require('./src/config/passport')(passport);
 var session = require('express-session');
-var webRouter = require('./routes/webRouter')();
-var apiRouter = require('./routes/apiRouter')(passport);
+var webRouter = require('./src/routes/webRouter')();
+var apiRouter = require('./src/routes/apiRouter')(passport);
 
 
 
-
-
-
-app.engine('.hbs',exphbs({defaultLayout:'body',extname:'.hbs'}));
+app.set('views', __dirname + '/src/views');
+app.engine('.hbs',exphbs({defaultLayout:'body',extname:'.hbs',layoutsDir:'src/views/layouts',partialsDir:'src/views/partials'}));
 app.set('view engine', '.hbs');
 app.use(flash());
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/src/public'));
 app.use(express.static(__dirname + '/node_modules'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));

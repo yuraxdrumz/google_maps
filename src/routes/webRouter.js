@@ -58,6 +58,7 @@ module.exports = function(){
     router.get('/loc/:place_id',auth,function(req,res,next){
         Location.find({location_id:req.params.place_id}).exec().then(function(data){
             res.json(data)
+
         })
         .catch(function(err){
             next(err);

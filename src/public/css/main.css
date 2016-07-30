@@ -20,23 +20,24 @@
     display: flex;
     flex: 1;
     min-height: 50%;
-/*    flex-direction: column;*/
     background-color: rgb(31, 149, 77);
     animation: fadeIn 1s;
-
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .single_review{
     display: flex;
-    flex: 1;
+    flex: 1 1 25%;
     flex-direction: column;
-    width:50%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 20%;
+    max-width: 20%;
     border:2px solid black;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
     border-radius: 5px;
     animation: fadeIn 1s;
+    min-height: 100%;
+    text-align: center;
+    margin: 1rem;
+    flex-wrap: wrap;
 }
 .img_size{
     height:10rem;
@@ -60,5 +61,6 @@
     text-align: center;
     margin-top: 1rem;
 }
+
 
 
