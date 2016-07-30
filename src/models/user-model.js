@@ -9,11 +9,16 @@ var userSchema = new mongoose.Schema({
     first_name:String,
     last_name:String,
     email:{
-        type:String,
-        unique:true
+        type:String
     },
     salt:String,
-    hash:String
+    hash:String,
+    google:{
+        id:String,
+        first_name:String,
+        last_name:String,
+        email:String
+    }
 });
 
 userSchema.methods.setPassword = function (password) {

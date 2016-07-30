@@ -5,7 +5,8 @@ var mongoose = require('mongoose');
 var User = require('../models/user-model');
 var localStrategy = require('passport-local').Strategy;
 var flash = require('connect-flash');
-
+var GoogleStrategy = require('passport-google-oauth2').Strategy;
+var configAuth = require('./auth');
 module.exports = function (passport) {
     passport.serializeUser(function (user,done) {
         return done(null,user._id)
@@ -67,8 +68,50 @@ module.exports = function (passport) {
                 })
         }
 
-    ))
+    ));
+    passport.use(new GoogleStrategy({
+        clientID: configAuth.googleAuth.clientID,
+        clientSecret: configAuth.googleAuth.clientSecret,
+        callbackURL: configAuth.googleAuth.callbackURL,
+        passReqToCallback: true
+    },
+    function(req, accessToken, refreshToken, profile, done) {
+        process.nextTick(function () {
+            if(!req.user){
+                User.findOne({'google.id':profile.id}).exec()
+                .then(function(user){
+                    if(user !== null){
+                        user.google.id = profile.id
+                        user.google.first_name = profile.name.givenName;
+                        user.google.last_name=profile.name.familyName;
+                        user.first_name = profile.name.givenName;
+                        user.last_name = profile.name.familyName;
+                        user.google.email = profile.email
+                        user.email = profile.email
+                        user.save().then(function(){
+                            console.log(user)
+                            return done(null,user)
+                        })
+                    }else{
+                        var user = new User({
+                            _id: mongoose.Types.ObjectId(),
+                            'google.id' : profile.id,
+                            'google.first_name' : profile.name.givenName,
+                            'google.last_name' : profile.name.familyName,
+                            'google.email' : profile.email,
+                            first_name:profile.name.givenName,
+                            last_name:profile.name.familyName,
+                            email : profile.email
+                        })
+                        user.save().then(function(){
+                            return done(null,user);
+                        })
+                    }
+                })
+            }
 
 
+        });
+    }));
 
 };
