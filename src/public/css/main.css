@@ -34,7 +34,6 @@
     border:2px solid black;
     border-radius: 5px;
     animation: fadeIn 1s;
-    min-height: 100%;
     text-align: center;
     margin: 1rem;
     flex-wrap: wrap;
