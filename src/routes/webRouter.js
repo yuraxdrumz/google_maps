@@ -11,8 +11,8 @@ var multiPartyMiddleware = multiParty();
 var fs = require('fs');
 var S3FS = require('s3fs');
 var s3fsImpl = new S3FS('yurasbucket776',{
-    accessKeyId : 'AKIAJ2AL7LP6NVOYPRZA ',
-    secretAccessKey:'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'
+    accessKeyId : '',
+    secretAccessKey:''
 });
 s3fsImpl.create();
 module.exports = function(){
