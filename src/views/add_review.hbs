@@ -1,5 +1,6 @@
 <div class="add_review_background"></div>
-  <form class="review_form" method="post" action="/add-review">
+
+  <form class="review_form"  method="post" action="/add-review" enctype="multipart/form-data">
 
     <span class="login_form">
         <label>Location</label><input class="input_box" type="text" id='review_search' name='location' required>
@@ -7,14 +8,32 @@
     <span class="login_form">
         <label>Place to review</label><input class='input_box' type="text" name='place' required>
     </span>
+<!--
     <span class="login_form">
-        <label>img url</label><input class="input_box" type="text" name='img' required>
+        <label>Upload your image</label>
+        <input type="file" class="dropzone" name='file' accept=".png, .jpg, .jpeg" required>
     </span>
+-->
+<div id="dropzone">
+  <div>Drage image or click to upload</div>
+  <input type="file" name='file' accept="image/png,image/jpg,image/jpeg" />
+</div>
     <span class="login_form">
         <label>review</label>
-        <textarea class="input_box" name='review' required></textarea>
+        <textarea style='height:5rem;' class="input_box" name='review' required></textarea>
     </span>
     <button class="btn" type="submit">Submit</button>
 </form>
+
+
+
+
+
+
+
+
+
+
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsTimrAVNKbEHPX-C0ztowEdzFnyxVxFw&libraries=places"></script>
 <script src="/js/add_review.js"></script>

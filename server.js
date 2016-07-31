@@ -19,8 +19,10 @@ var session = require('express-session');
 var webRouter = require('./src/routes/webRouter')();
 var apiRouter = require('./src/routes/apiRouter')(passport);
 
+var multiParty = require('connect-multiparty');
+var multiPartyMiddleware = multiParty();
 
-
+app.use(multiPartyMiddleware);
 app.set('views', __dirname + '/src/views');
 app.engine('.hbs',exphbs({defaultLayout:'body',extname:'.hbs',layoutsDir:'src/views/layouts',partialsDir:'src/views/partials'}));
 app.set('view engine', '.hbs');

@@ -24,21 +24,19 @@
 
 .location {
     display: flex;
-    flex: 1;
     background-color: aqua;
     width: 100%;
     justify-content: center;
 }
 .place_reviewed{
     display: flex;
-    flex: 1;
     background-color: antiquewhite;
     width: 100%;
     justify-content: center;
 }
 .review_image{
     display: flex;
-    flex: 2;
+    flex: 1;
     background-color: darkred;
     width: 100%;
 }
@@ -47,14 +45,13 @@
     background-color: rebeccapurple;
     width: 100%;
     overflow: auto;
-    flex: 2;
+    flex: 1;
     flex-direction: column;
     word-wrap: break-word;
 
 }
 .who_reviewed{
     display: flex;
-    flex: 1;
     background-color: crimson;
     width: 100%;
     justify-content: center;

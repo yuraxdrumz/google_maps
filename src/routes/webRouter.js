@@ -6,7 +6,18 @@ var mongoose = require('mongoose');
 var Location = require('../models/location-model');
 var flash = require('connect-flash');
 
+var multiParty = require('connect-multiparty');
+var multiPartyMiddleware = multiParty();
+var fs = require('fs');
+var S3FS = require('s3fs');
+var s3fsImpl = new S3FS('yurasbucket776',{
+    accessKeyId : 'AKIAJ2AL7LP6NVOYPRZA ',
+    secretAccessKey:'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'
+});
+s3fsImpl.create();
 module.exports = function(){
+
+
 
     router.get('/',function (req,res) {
         var msg = req.flash('message');
@@ -31,29 +42,40 @@ module.exports = function(){
         res.render('add_review',{user:req.user})
     });
 
-    router.post('/add-review',auth,function(req,res,next){
-        var place = req.body.location;
-        var place_divide = place.split('*');
-        var location_name = place_divide[1];
-        var location_id = place_divide[0];
-
-        var location = new Location({
-            _id: mongoose.Types.ObjectId(),
-            location_name:location_name,
-            location_id:location_id,
-            place:req.body.place,
-            img_url:req.body.img,
-            review:req.body.review,
-            user_id:req.user._id,
-            user_fname:req.user.first_name,
-            user_lname:req.user.last_name
-        });
-        location.save().then(function(){
-            res.redirect('/main');
+    router.post('/add-review',multiPartyMiddleware,auth,function(req,res,next){
+        var file = req.files.file;
+        var stream = fs.createReadStream(file.path);
+        var img_name = file.originalFilename;
+        return s3fsImpl.writeFile(file.originalFilename, stream).then(function(){
+            fs.unlink(file.path);
+        }).then(function(){
+            var place = req.body.location;
+            var place_divide = place.split('*');
+            var location_name = place_divide[1];
+            var location_id = place_divide[0];
+            var location = new Location({
+                _id: mongoose.Types.ObjectId(),
+                location_name:location_name,
+                location_id:location_id,
+                place:req.body.place,
+                img_url:'https://s3.amazonaws.com/yurasbucket776/' + img_name,
+                review:req.body.review,
+                user_id:req.user._id,
+                user_fname:req.user.first_name,
+                user_lname:req.user.last_name
+            });
+            location.save().then(function(){
+                res.redirect('/main');
+            }).catch(function(err){
+                next(err);
+            });
         }).catch(function(err){
-            next(err);
+            next(err)
         });
     });
+
+
+
 
     router.get('/loc/:place_id',auth,function(req,res,next){
         Location.find({location_id:req.params.place_id}).exec().then(function(data){
