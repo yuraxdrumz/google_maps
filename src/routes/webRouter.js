@@ -74,7 +74,7 @@ module.exports = function(){
     });
 
     router.get('/edit/:id',auth,function(req,res,next){
-        Location.findOne({location_id:req.params.id}).exec().then(function(found){
+        Location.findOne({_id:req.params.id}).exec().then(function(found){
             res.render('edit_review',{review:found,user:req.user});
         })
         .catch(function(err){
@@ -83,7 +83,7 @@ module.exports = function(){
     })
 
     router.post('/edit/:id',auth,function(req,res,next){
-        Location.findOneAndUpdate({location_id:req.params.id},{
+        Location.findOneAndUpdate({_id:req.params.id},{
             place:req.body.place,
             img_url:req.body.img_url,
             review:req.body.review
