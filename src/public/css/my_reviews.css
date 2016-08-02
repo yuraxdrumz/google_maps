@@ -1,6 +1,6 @@
 .each_review{
     font-size: 1.3rem;
-    flex: 0 0 30%;
+    flex: 0 0 50%;
     animation: fadeIn 1s;
     display: flex;
     flex-direction: column;
@@ -12,6 +12,8 @@
     border-radius: 5px;
     padding: 1rem;
     max-width: 20%;
+    min-height: 30rem;
+    max-height: 30rem;
 
 }
 .all{
@@ -36,8 +38,7 @@
 }
 .review_image{
     display: flex;
-    flex: 1;
-    background-color: darkred;
+    flex: 2;
     width: 100%;
 }
 .review_by_user{

@@ -4,12 +4,14 @@ $(document).ready(function(){
         types: ['(cities)']
     });
 
+
     $('.review_form').submit(function(e){
         var place = autocomplete.getPlace().place_id;
         var place_name = autocomplete.getPlace().name;
         var total = place + '*' + place_name;
         $('#review_search').val(total);
     });
+
 
 //  $('#dropzone').on('dragover', function() {
 //    $(this).addClass('hover');
@@ -39,6 +41,7 @@ $(document).ready(function(){
       reader.onload = function(e) {
         var data = e.target.result,
             $img = $('<img />').attr('src', data).fadeIn();
+
 
         $('#dropzone div').html($img);
       };

@@ -2,7 +2,10 @@
 
 <form action="/edit/{{review._id}}" method="post" class="edit_review">
     <div class="login_form"><label for="">Place</label><input class="input_box" type="text" value="{{review.place}}" name='place'></div>
+
     <div class="login_form"><label for="">Image url</label><input class="input_box" type="text" value="{{review.img_url}}" name='img_url'></div>
+
     <div class="login_form"><label for="">Review</label><input class="input_box" type="text" value="{{review.review}}" name='review'></div>
     <button class="btn">Save Changes</button>
 </form>
+

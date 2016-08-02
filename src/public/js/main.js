@@ -47,7 +47,8 @@ $(document).ready(function(){
                     img.style.background = 'url('+reviews[i].img_url+') 50% 50% no-repeat';
                     img.style.backgroundSize = 'cover';
                     review.innerHTML = reviews[i].review;
-                    review.style.wordWrap = 'break-word'
+                    review.style.wordWrap = 'break-word';
+                    review.style.overflow = 'auto';
                     user_name.innerHTML ='by: ' + reviews[i].user_fname + ' ' + reviews[i].user_lname;
                     div.appendChild(date);
                     div.appendChild(place);

@@ -37,6 +37,7 @@
     text-align: center;
     margin: 1rem;
     flex-wrap: wrap;
+    word-wrap: break-word;
 }
 .img_size{
     height:10rem;

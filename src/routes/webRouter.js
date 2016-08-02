@@ -11,8 +11,8 @@ var multiPartyMiddleware = multiParty();
 var fs = require('fs');
 var S3FS = require('s3fs');
 var s3fsImpl = new S3FS('yurasbucket776',{
-    accessKeyId : '',
-    secretAccessKey:''
+    accessKeyId : 'AKIAJFTIDL5WQFRL2ARQ',
+    secretAccessKey:'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'
 });
 s3fsImpl.create();
 module.exports = function(){
@@ -47,8 +47,6 @@ module.exports = function(){
         var stream = fs.createReadStream(file.path);
         var img_name = file.originalFilename;
         return s3fsImpl.writeFile(file.originalFilename, stream).then(function(){
-            fs.unlink(file.path);
-        }).then(function(){
             var place = req.body.location;
             var place_divide = place.split('*');
             var location_name = place_divide[1];
