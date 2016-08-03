@@ -3,6 +3,9 @@
  */
 var express = require('express');
 var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+require('./src/routes/sockets')(io);
 var bodyParser = require('body-parser');
 var port = process.env.PORT || 3000;
 var exphbs  = require('express-handlebars');
@@ -48,7 +51,7 @@ con.on('open',function () {
 
     app.use('/',webRouter);
     app.use('/',apiRouter);
-    app.listen(port,function () {
+    http.listen(port,function () {
         console.log('server is up on port ' + port);
     });
 });

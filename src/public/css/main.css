@@ -9,11 +9,22 @@
     height: 100%;
 }
 #map{
-
+    position: relative;
     display: flex;
     flex: 1;
     min-height: 40%;
     animation: fadeIn 1s;
+}
+.over{
+    position: absolute;
+    right:-200px;
+    top:5%;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 50%;
+    width: 20%;
+    height: 40%;
+    background-color: white;
 }
 
 .reviews {

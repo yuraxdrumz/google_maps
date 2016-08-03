@@ -1,5 +1,19 @@
 $(document).ready(function(){
 
+    var socket = io();
+    var main = 'default'
+    socket.on('connect',function(){
+        socket.emit('room', main);
+        console.log('connected to ' + main);
+    });
+
+
+    socket.on('message', function(msg){
+        $('.over').append($('<div>').text(msg));
+        console.log(msg)
+    });
+
+    $(".over").animate({"right":"0px"}, "slow");
 
     window.initMap = function(){
         var map = new google.maps.Map(document.getElementById('map'),{
@@ -16,6 +30,12 @@ $(document).ready(function(){
         map.controls[google.maps.ControlPosition.TOP_CENTER].push(input);
 
         autocomplete.addListener('place_changed',function(){
+
+
+
+            $(".over").css('display','none');
+            $('.over').css('right','-200px');
+
             var myDiv = document.querySelector('.reviews');
                 while ( myDiv.firstChild ){
                     myDiv.removeChild( myDiv.firstChild );
@@ -25,6 +45,9 @@ $(document).ready(function(){
             var place_id = autocomplete.getPlace().place_id;
             map.setCenter(new_center);
 
+            $('.over').css('display','flex');
+            $(".over").animate({"right":"0px"}, "slow");
+
             var marker = new google.maps.Marker({
                 position:new_center,
                 animation: google.maps.Animation.DROP,
@@ -32,6 +55,8 @@ $(document).ready(function(){
             });
 
             $.get('/loc/' + place_id,function(data){
+
+
                 var reviews = data;
                 for(var i=0,len=reviews.length;i<len;i++){
                     var div = document.createElement('div');
