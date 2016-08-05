@@ -25,6 +25,8 @@
     width: 20%;
     height: 40%;
     background-color: white;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .reviews {
@@ -73,5 +75,27 @@
     margin-top: 1rem;
 }
 
+.main-chat{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    flex-direction: column;
+}
 
-
+.who-connected{
+    width: 100%;
+    display: flex;
+    flex: 1;
+    overflow: auto;
+    color: black;
+    font-size: 1.2rem;
+    font-weight: bold;
+    flex-direction: column;
+/*    flex-wrap: wrap;*/
+    background-color: aqua;
+}
+.new-message-recived{
+    max-width: 100%;
+    width: 100%;
+    word-wrap: break-word;
+}

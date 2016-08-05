@@ -1,17 +1,40 @@
 $(document).ready(function(){
 
     var socket = io();
-    var main = 'default'
+    var main = 'default';
+    var cleanScreen = function(div_name){
+        var myDiv = document.querySelector(div_name);
+            while ( myDiv.firstChild ){
+                myDiv.removeChild( myDiv.firstChild );
+        };
+    };
+
+
     socket.on('connect',function(){
         socket.emit('room', main);
-        console.log('connected to ' + main);
     });
 
 
     socket.on('message', function(msg){
-        $('.over').append($('<div>').text(msg));
+        var $div = $('<div>');
+        $div.addClass('new-message-recived')
+        $('.who-connected').append($div.text(msg));
         console.log(msg)
     });
+
+    $('.send-msg').on('click',function(e){
+        e.preventDefault()
+        var msg = $('#msg').val();
+        var data = {
+            room:main,
+            msg:msg
+        }
+        socket.emit('message',data);
+        $('#msg').val('')
+        return false;
+    })
+
+
 
     $(".over").animate({"right":"0px"}, "slow");
 
@@ -32,18 +55,19 @@ $(document).ready(function(){
         autocomplete.addListener('place_changed',function(){
 
 
-
             $(".over").css('display','none');
             $('.over').css('right','-200px');
 
-            var myDiv = document.querySelector('.reviews');
-                while ( myDiv.firstChild ){
-                    myDiv.removeChild( myDiv.firstChild );
-                };
-
+            cleanScreen('.reviews');
+            cleanScreen('.who-connected');
             var new_center = autocomplete.getPlace().geometry.location;
             var place_id = autocomplete.getPlace().place_id;
             map.setCenter(new_center);
+
+
+
+
+
 
             $('.over').css('display','flex');
             $(".over").animate({"right":"0px"}, "slow");
@@ -82,10 +106,13 @@ $(document).ready(function(){
                     div.appendChild(review);
                     div.className += 'single_review';
                     document.querySelector('.reviews').appendChild(div);
+
+
                 }
 
             });
         });
     };
+
 
 });
