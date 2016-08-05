@@ -1,19 +1,13 @@
 $(document).ready(function(){
 
     var socket = io();
-    var main = 'default';
+
     var cleanScreen = function(div_name){
         var myDiv = document.querySelector(div_name);
             while ( myDiv.firstChild ){
                 myDiv.removeChild( myDiv.firstChild );
         };
     };
-
-
-    socket.on('connect',function(){
-        socket.emit('room', main);
-    });
-
 
     socket.on('message', function(msg){
         var $div = $('<div>');
@@ -25,14 +19,12 @@ $(document).ready(function(){
     $('.send-msg').on('click',function(e){
         e.preventDefault()
         var msg = $('#msg').val();
-        var data = {
-            room:main,
-            msg:msg
-        }
-        socket.emit('message',data);
+        socket.emit('message',msg);
         $('#msg').val('')
         return false;
     })
+
+
 
 
 
@@ -60,13 +52,12 @@ $(document).ready(function(){
 
             cleanScreen('.reviews');
             cleanScreen('.who-connected');
+
             var new_center = autocomplete.getPlace().geometry.location;
             var place_id = autocomplete.getPlace().place_id;
             map.setCenter(new_center);
 
-
-
-
+            socket.emit('change-room',place_id)
 
 
             $('.over').css('display','flex');
