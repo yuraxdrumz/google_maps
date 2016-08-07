@@ -1,12 +1,12 @@
 {
   "name": "0123",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "review app using google maps",
+  "main": "server.js",
   "scripts": {
     "start": "nodemon server.js"
   },
-  "keywords": [],
+  "keywords": ["reviews,google,maps,travel,fun"],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -29,6 +29,8 @@
     "socket.io-client": "^1.4.8"
   },
   "devDependencies": {
+    "eslint": "^3.2.2",
+    "eslint-config-google": "^0.6.0",
     "morgan": "^1.7.0",
     "nodemon": "^1.9.2"
   }

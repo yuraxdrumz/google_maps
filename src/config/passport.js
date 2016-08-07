@@ -1,20 +1,19 @@
-/**
- * Created by Jbt on 22-Jul-16.
- */
+/* eslint no-undef: "error" */
+/* eslint-env node */
 var mongoose = require('mongoose');
 var User = require('../models/user-model');
 var localStrategy = require('passport-local').Strategy;
-var flash = require('connect-flash');
 var GoogleStrategy = require('passport-google-oauth2').Strategy;
 var configAuth = require('./auth');
 module.exports = function (passport) {
     passport.serializeUser(function (user,done) {
-        return done(null,user._id)
+        return done(null,user._id);
     });
     passport.deserializeUser(function (id,done) {
-        User.findOne({_id:id}).exec().then(function (user) {
-            return done(null, user)
-        })
+        User.findOne({_id:id}).exec()
+            .then(function (user) {
+                return done(null, user);
+            });
     });
 
     passport.use('local-login',new localStrategy({
@@ -23,18 +22,19 @@ module.exports = function (passport) {
         passReqToCallback:true
     },
         function (req, email, password, done) {
-            User.findOne({email:email}).exec().then(function (user) {
-                if(!user){
-                    return done(null,false,req.flash('message','user not found'));
-                }
-                if(!(user.checkValid(password))){
-                    return done(null,false,req.flash('message','password is incorrect'))
-                }
-                return done(null, user)
-            })
+            User.findOne({email:email}).exec()
+                .then(function (user) {
+                    if (!user) {
+                        return done(null,false,req.flash('message','user not found'));
+                    }
+                    if (!(user.checkValid(password))) {
+                        return done(null,false,req.flash('message','password is incorrect'))
+                    }
+                    return done(null, user)
+                })
                 .catch(function (err) {
                     done(err)
-                })
+                });
         }
     ));
 
@@ -44,27 +44,28 @@ module.exports = function (passport) {
         passReqToCallback:true
     },
         function (req,email,password,done) {
-            User.findOne({email:email}).exec().then(function (user) {
-                if(user) {
-                    return done(null, false,req.flash('message','This email is already taken'))
-                }else{
-                    var user = new User({
-                        _id: mongoose.Types.ObjectId(),
-                        first_name: req.body.f_name,
-                        last_name: req.body.l_name,
-                        email: email
-                    });
-                    user.setPassword(password);
-                    user.save().then(function () {
-                        return done(null, user)
-                    })
-                        .catch(function (err) {
-                            done(err)
+            User.findOne({email:email}).exec()
+                .then(function (user) {
+                    if (user) {
+                        return done(null, false,req.flash('message','This email is already taken'));
+                    } else {
+                        var user = new User({
+                            _id: mongoose.Types.ObjectId(),
+                            first_name: req.body.f_name,
+                            last_name: req.body.l_name,
+                            email: email
+                        });
+                        user.setPassword(password);
+                        user.save().then(function () {
+                            return done(null, user);
                         })
-                }
-            })
+                        .catch(function (err) {
+                            done(err);
+                        })
+                    }
+                })
                 .catch(function (err) {
-                    done(err)
+                    done(err);
                 })
         }
 
@@ -77,11 +78,11 @@ module.exports = function (passport) {
     },
     function(req, accessToken, refreshToken, profile, done) {
         process.nextTick(function () {
-            if(!req.user){
+            if (!req.user){
                 User.findOne({'google.id':profile.id}).exec()
-                .then(function(user){
-                    if(user !== null){
-                        user.google.id = profile.id
+                .then(function (user) {
+                    if (user !== null){
+                        user.google.id = profile.id;
                         user.google.first_name = profile.name.givenName;
                         user.google.last_name=profile.name.familyName;
                         user.first_name = profile.name.givenName;
@@ -91,8 +92,8 @@ module.exports = function (passport) {
                         user.save().then(function(){
                             console.log(user)
                             return done(null,user)
-                        })
-                    }else{
+                        });
+                    } else {
                         var user = new User({
                             _id: mongoose.Types.ObjectId(),
                             'google.id' : profile.id,
@@ -107,11 +108,8 @@ module.exports = function (passport) {
                             return done(null,user);
                         })
                     }
-                })
+                });
             }
-
-
         });
     }));
-
 };

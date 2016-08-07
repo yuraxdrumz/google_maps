@@ -1,6 +1,5 @@
-/**
- * Created by Jbt on 22-Jul-16.
- */
+/*eslint no-undef: "error"*/
+/*eslint-env node*/
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);

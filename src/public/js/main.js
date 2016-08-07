@@ -1,54 +1,45 @@
-$(document).ready(function(){
-
+$(document).ready( function() {
     var socket = io();
-
-    var cleanScreen = function(div_name){
+    var cleanScreen = function (div_name) {
         var myDiv = document.querySelector(div_name);
-            while ( myDiv.firstChild ){
-                myDiv.removeChild( myDiv.firstChild );
+            while (myDiv.firstChild) {
+                myDiv.removeChild(myDiv.firstChild);
         };
     };
 
-    socket.on('message', function(msg){
+    socket.on('message', function (msg) {
         var $div = $('<div>');
-        $div.addClass('new-message-recived')
+        $div.addClass('new-message-recived');
         $('.who-connected').append($div.text(msg));
-        console.log(msg)
     });
 
-    $('.send-msg').on('click',function(e){
-        e.preventDefault()
+    $('.send-msg').on('click', function (event) {
+        event.preventDefault();
         var msg = $('#msg').val();
         socket.emit('message',msg);
-        $('#msg').val('')
+        $('#msg').val('');
         return false;
     })
 
-
-
-
-
     $(".over").animate({"right":"0px"}, "slow");
 
-    window.initMap = function(){
+    window.initMap = function () {
         var map = new google.maps.Map(document.getElementById('map'),{
             center:{lat:26,lng:63},
             scrollwheel:true,
             zoom:8
-        })
-
-
-        var input = document.getElementById('search')
+        });
+        var input = document.getElementById('search');
         var autocomplete = new google.maps.places.Autocomplete(input,{
             types: ['(cities)']
         });
         map.controls[google.maps.ControlPosition.TOP_CENTER].push(input);
 
-        autocomplete.addListener('place_changed',function(){
-
-
+        autocomplete.addListener('place_changed', function () {
             $(".over").css('display','none');
             $('.over').css('right','-200px');
+            $('.over').css('display','flex');
+            $(".over").animate({"right":"0px"}, "slow");
 
             cleanScreen('.reviews');
             cleanScreen('.who-connected');
@@ -57,11 +48,7 @@ $(document).ready(function(){
             var place_id = autocomplete.getPlace().place_id;
             map.setCenter(new_center);
 
-            socket.emit('change-room',place_id)
-
-
-            $('.over').css('display','flex');
-            $(".over").animate({"right":"0px"}, "slow");
+            socket.emit('change-room',place_id);
 
             var marker = new google.maps.Marker({
                 position:new_center,
@@ -69,11 +56,9 @@ $(document).ready(function(){
                 map:map
             });
 
-            $.get('/loc/' + place_id,function(data){
-
-
+            $.get('/loc/' + place_id, function (data) {
                 var reviews = data;
-                for(var i=0,len=reviews.length;i<len;i++){
+                for (var i=0,len=reviews.length;i<len;i++) {
                     var div = document.createElement('div');
                     var date = document.createElement('div');
                     var place = document.createElement('div');
@@ -97,13 +82,8 @@ $(document).ready(function(){
                     div.appendChild(review);
                     div.className += 'single_review';
                     document.querySelector('.reviews').appendChild(div);
-
-
-                }
-
+                };
             });
         });
     };
-
-
 });

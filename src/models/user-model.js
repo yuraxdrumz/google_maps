@@ -1,6 +1,5 @@
-/**
- * Created by Jbt on 22-Jul-16.
- */
+/* eslint no-undef: "error" */
+/* eslint-env node */
 var mongoose = require('mongoose');
 var crypto = require('crypto');
 
