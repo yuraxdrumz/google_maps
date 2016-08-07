@@ -1,10 +1,10 @@
 module.exports = function (io) {
-    var rooms = ['1','2','3'];
+    var rooms = ['default'];
     var sockets = {};
     io.on('connection',function (socket) {
         socket.join(rooms[0]);
         sockets[socket.id] = rooms[0];
-        io.sockets.to(rooms[0]).emit('message','connected!');
+        io.sockets.to(sockets[socket.id]).emit('message','connected to room ' + sockets[socket.id]);
         socket.on('message', function (msg) {
             for (var sock in sockets) {
                 if (sock === socket.id) {
