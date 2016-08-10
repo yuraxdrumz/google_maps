@@ -1,0 +1,118 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'superagent--save-dev' ]
+2 info using npm@2.14.20
+3 info using node@v4.4.0
+4 verbose install initial load of C:\Users\Yurasya\Desktop\AngularJS\MEAN stack projects\google_maps_hbs\package.json
+5 warn package.json 0123@1.0.0 No repository field.
+6 warn package.json 0123@1.0.0 No README data
+7 verbose installManyTop reading scoped package data from C:\Users\Yurasya\Desktop\AngularJS\MEAN stack projects\google_maps_hbs\node_modules\bluebird\package.json
+8 verbose installManyTop reading scoped package data from C:\Users\Yurasya\Desktop\AngularJS\MEAN stack projects\google_maps_hbs\node_modules\body-parser\package.json
+9 verbose installManyTop reading scoped package data from C:\Users\Yurasya\Desktop\AngularJS\MEAN stack projects\google_maps_hbs\node_modules\chai\package.json
+10 verbose installManyTop reading scoped package data from C:\Users\Yurasya\Desktop\AngularJS\MEAN stack projects\google_maps_hbs\node_modules\chai-http\package.json
+11 verbose installManyTop reading scoped package data from C:\Users\Yurasya\Desktop\AngularJS\MEAN stack projects\google_maps_hbs\node_modules\connect-flash\package.json
+12 verbose installManyTop reading scoped package data from C:\Users\Yurasya\Desktop\AngularJS\MEAN stack projects\google_maps_hbs\node_modules\connect-multiparty\package.json
+13 verbose installManyTop reading scoped package data from C:\Users\Yurasya\Desktop\AngularJS\MEAN stack projects\google_maps_hbs\node_modules\cookie-parser\package.json
+14 verbose installManyTop reading scoped package data from C:\Users\Yurasya\Desktop\AngularJS\MEAN stack projects\google_maps_hbs\node_modules\eslint\package.json
+15 verbose installManyTop reading scoped package data from C:\Users\Yurasya\Desktop\AngularJS\MEAN stack projects\google_maps_hbs\node_modules\eslint-config-google\package.json
+16 verbose installManyTop reading scoped package data from C:\Users\Yurasya\Desktop\AngularJS\MEAN stack projects\google_maps_hbs\node_modules\express\package.json
+17 verbose installManyTop reading scoped package data from C:\Users\Yurasya\Desktop\AngularJS\MEAN stack projects\google_maps_hbs\node_modules\express-handlebars\package.json
+18 verbose installManyTop reading scoped package data from C:\Users\Yurasya\Desktop\AngularJS\MEAN stack projects\google_maps_hbs\node_modules\express-session\package.json
+19 verbose installManyTop reading scoped package data from C:\Users\Yurasya\Desktop\AngularJS\MEAN stack projects\google_maps_hbs\node_modules\hover.css\package.json
+20 verbose installManyTop reading scoped package data from C:\Users\Yurasya\Desktop\AngularJS\MEAN stack projects\google_maps_hbs\node_modules\mocha\package.json
+21 verbose installManyTop reading scoped package data from C:\Users\Yurasya\Desktop\AngularJS\MEAN stack projects\google_maps_hbs\node_modules\moment\package.json
+22 verbose installManyTop reading scoped package data from C:\Users\Yurasya\Desktop\AngularJS\MEAN stack projects\google_maps_hbs\node_modules\mongoose\package.json
+23 verbose installManyTop reading scoped package data from C:\Users\Yurasya\Desktop\AngularJS\MEAN stack projects\google_maps_hbs\node_modules\morgan\package.json
+24 verbose installManyTop reading scoped package data from C:\Users\Yurasya\Desktop\AngularJS\MEAN stack projects\google_maps_hbs\node_modules\nodemon\package.json
+25 verbose installManyTop reading scoped package data from C:\Users\Yurasya\Desktop\AngularJS\MEAN stack projects\google_maps_hbs\node_modules\passport\package.json
+26 verbose installManyTop reading scoped package data from C:\Users\Yurasya\Desktop\AngularJS\MEAN stack projects\google_maps_hbs\node_modules\passport-google-oauth2\package.json
+27 verbose installManyTop reading scoped package data from C:\Users\Yurasya\Desktop\AngularJS\MEAN stack projects\google_maps_hbs\node_modules\passport-local\package.json
+28 verbose installManyTop reading scoped package data from C:\Users\Yurasya\Desktop\AngularJS\MEAN stack projects\google_maps_hbs\node_modules\s3fs\package.json
+29 verbose installManyTop reading scoped package data from C:\Users\Yurasya\Desktop\AngularJS\MEAN stack projects\google_maps_hbs\node_modules\socket.io\package.json
+30 verbose installManyTop reading scoped package data from C:\Users\Yurasya\Desktop\AngularJS\MEAN stack projects\google_maps_hbs\node_modules\socket.io-client\package.json
+31 info package.json connect-flash@0.1.1 No license field.
+32 info package.json passport-local@1.0.0 No license field.
+33 info package.json eslint-config-google@0.6.0 license should be a valid SPDX license expression
+34 info package.json chai-http@1.0.0 No license field.
+35 info package.json hover.css@2.0.2 No license field.
+36 verbose readDependencies loading dependencies from C:\Users\Yurasya\Desktop\AngularJS\MEAN stack projects\google_maps_hbs\package.json
+37 silly cache add args [ 'superagent--save-dev', null ]
+38 verbose cache add spec superagent--save-dev
+39 silly cache add parsed spec Result {
+39 silly cache add   raw: 'superagent--save-dev',
+39 silly cache add   scope: null,
+39 silly cache add   name: 'superagent--save-dev',
+39 silly cache add   rawSpec: '',
+39 silly cache add   spec: 'latest',
+39 silly cache add   type: 'tag' }
+40 silly addNamed superagent--save-dev@latest
+41 verbose addNamed "latest" is being treated as a dist-tag for superagent--save-dev
+42 info addNameTag [ 'superagent--save-dev', 'latest' ]
+43 silly mapToRegistry name superagent--save-dev
+44 silly mapToRegistry using default registry
+45 silly mapToRegistry registry http://registry.npmjs.org/
+46 silly mapToRegistry uri http://registry.npmjs.org/superagent--save-dev
+47 verbose addNameTag registry:http://registry.npmjs.org/superagent--save-dev not in flight; fetching
+48 verbose request uri http://registry.npmjs.org/superagent--save-dev
+49 verbose request no auth needed
+50 info attempt registry request try #1 at 2:04:50 AM
+51 verbose request id 455eff7012327385
+52 http request GET http://registry.npmjs.org/superagent--save-dev
+53 http 404 http://registry.npmjs.org/superagent--save-dev
+54 verbose headers { 'content-type': 'application/json',
+54 verbose headers   'cache-control': 'max-age=0',
+54 verbose headers   'content-length': '2',
+54 verbose headers   'accept-ranges': 'bytes',
+54 verbose headers   date: 'Wed, 10 Aug 2016 23:05:04 GMT',
+54 verbose headers   via: '1.1 varnish',
+54 verbose headers   age: '0',
+54 verbose headers   connection: 'keep-alive',
+54 verbose headers   'x-served-by': 'cache-lhr6345-LHR',
+54 verbose headers   'x-cache': 'MISS',
+54 verbose headers   'x-cache-hits': '0',
+54 verbose headers   'x-timer': 'S1470870304.091271,VS0,VE360',
+54 verbose headers   vary: 'Accept-Encoding' }
+55 silly get cb [ 404,
+55 silly get   { 'content-type': 'application/json',
+55 silly get     'cache-control': 'max-age=0',
+55 silly get     'content-length': '2',
+55 silly get     'accept-ranges': 'bytes',
+55 silly get     date: 'Wed, 10 Aug 2016 23:05:04 GMT',
+55 silly get     via: '1.1 varnish',
+55 silly get     age: '0',
+55 silly get     connection: 'keep-alive',
+55 silly get     'x-served-by': 'cache-lhr6345-LHR',
+55 silly get     'x-cache': 'MISS',
+55 silly get     'x-cache-hits': '0',
+55 silly get     'x-timer': 'S1470870304.091271,VS0,VE360',
+55 silly get     vary: 'Accept-Encoding' } ]
+56 verbose stack Error: Registry returned 404 for GET on http://registry.npmjs.org/superagent--save-dev
+56 verbose stack     at makeError (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:264:12)
+56 verbose stack     at CachingRegistryClient.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:242:14)
+56 verbose stack     at Request._callback (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:172:14)
+56 verbose stack     at Request.self.callback (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:199:22)
+56 verbose stack     at emitTwo (events.js:87:13)
+56 verbose stack     at Request.emit (events.js:172:7)
+56 verbose stack     at Request.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:1036:10)
+56 verbose stack     at emitOne (events.js:82:20)
+56 verbose stack     at Request.emit (events.js:169:7)
+56 verbose stack     at IncomingMessage.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:963:12)
+57 verbose statusCode 404
+58 verbose pkgid superagent--save-dev
+59 verbose cwd C:\Users\Yurasya\Desktop\AngularJS\MEAN stack projects\google_maps_hbs
+60 error Windows_NT 6.3.9600
+61 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "superagent--save-dev"
+62 error node v4.4.0
+63 error npm  v2.14.20
+64 error code E404
+65 error 404 Registry returned 404 for GET on http://registry.npmjs.org/superagent--save-dev
+65 error 404
+65 error 404 'superagent--save-dev' is not in the npm registry.
+65 error 404 You should bug the author to publish it (or use the name yourself!)
+65 error 404 It was specified as a dependency of '0123'
+65 error 404
+65 error 404 Note that you can also install from a
+65 error 404 tarball, folder, http url, or git url.
+66 verbose exit [ 1, true ]
