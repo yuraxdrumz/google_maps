@@ -43,10 +43,10 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-
 var con = mongoose.connection;
 con.on('error',console.error.bind(console,'connection error'));
 con.on('open',function () {
+
 
     app.use('/',webRouter);
     app.use('/',apiRouter);
@@ -56,6 +56,6 @@ con.on('open',function () {
 });
 
 
-
+module.exports = app;
 
 

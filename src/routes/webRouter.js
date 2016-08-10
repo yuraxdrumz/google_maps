@@ -16,7 +16,9 @@ var s3fsImpl = new S3FS('yurasbucket776',{
 });
 s3fsImpl.create();
 module.exports = function () {
+
     router.get('/', function (req,res) {
+
         var msg = req.flash('message');
         if (req.user) {
             req.logout();
