@@ -10,12 +10,12 @@ chai.use(chaiHttp);
 
 
 describe('Users', function() {
-    beforeEach(function(done) { //Before each test we empty the database
-        User.remove({}, function(err){
-            console.log('removed');
-            done();
-        });
-    });
+//    beforeEach(function(done) { //Before each test we empty the database
+//        User.remove({}, function(err){
+//            console.log('removed');
+//            done();
+//        });
+//    });
 
     describe('Get test', function() {
       it('should get /', function(done) {
@@ -61,13 +61,11 @@ describe('Users', function() {
     });
     describe('Login Post', function(){
         it('show show post login /login', function(done){
-            var user = new User({
-                _id: mongoose.Types.ObjectId(),
-                first_name: 'yura',
-                last_name: 'khomyakov',
-                email: 'yura@gmail.com'
-                });
-                user.setPassword('444444');
+            var user = {
+                email: 'yura@gmail.com',
+                password:'123456'
+                };
+
                 chai.request(server)
                 .post('/login')
                 .send(user)
