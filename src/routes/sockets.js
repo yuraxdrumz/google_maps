@@ -14,6 +14,7 @@ module.exports = function (io) {
 
         })
         socket.on('disconnect', function () {
+            io.sockets.to(sockets[socket.id]).emit('message','left the room');
             socket.leave(sockets[socket.id]);
             delete sockets[socket.id];
         });
